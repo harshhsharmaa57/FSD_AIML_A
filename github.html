@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Dummy Profile</title>
+    <style>
+      :root {
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #30363d;
+        --muted: #8b949e;
+        --text: #e6edf3;
+        --green: #238636;
+        --blue: #58a6ff;
+        --yellow: #d29922;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      .topbar {
+        background: #0f172a;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .nav {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bold;
+      }
+
+      .logo {
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        border-radius: 50%;
+        color: #111;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+      }
+
+      .search-wrap {
+        flex: 1;
+        max-width: 440px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #0d1117;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0 8px;
+      }
+
+      .search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text);
+        padding: 9px 8px;
+        font-size: 14px;
+      }
+
+      .search-btn {
+        background: #21262d;
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .container {
+        max-width: 1180px;
+        margin: 24px auto;
+        padding: 0 18px;
+      }
+
+      .profile-wrap {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 28px;
+      }
+
+      .avatar {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        background: #2d3748;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name {
+        font-size: 26px;
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .bio {
+        margin-top: 16px;
+        line-height: 1.5;
+        color: #d1d5db;
+      }
+
+      .meta {
+        margin-top: 16px;
+        display: grid;
+        gap: 8px;
+        color: var(--muted);
+      }
+
+      .repo-header h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .stat {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 14px;
+        min-width: 140px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 24px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        gap: 16px;
+      }
+
+      .repo-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+      }
+
+      .repo-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .repo-name {
+        color: var(--blue);
+        font-weight: bold;
+      }
+
+      .repo-type {
+        color: var(--muted);
+        font-size: 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 3px 8px;
+      }
+
+      .desc {
+        color: var(--muted);
+        line-height: 1.5;
+        min-height: 44px;
+      }
+
+      .repo-meta {
+        margin-top: 12px;
+        display: flex;
+        gap: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        flex-wrap: wrap;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+      }
+
+      @media (max-width: 800px) {
+        .profile-wrap {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">G</div>
+          <span>GitHub</span>
+        </div>
+
+        <form id="searchForm" class="search-wrap">
+          <input
+            id="searchInput"
+            class="search-input"
+            type="text"
+            value="harshhsharmaa57"
+            placeholder="Search GitHub username"
+          />
+          <button class="search-btn" type="submit">Go</button>
+        </form>
+
+        <div class="nav-links">
+          <span>Pull requests</span>
+          <span>Issues</span>
+          <span>Projects</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="profile-wrap">
+        <aside>
+          <div class="avatar" id="avatar"></div>
+          <h1 class="name" id="name">Loading...</h1>
+          <div class="login" id="login">@loading</div>
+          <div class="bio" id="bio">Loading profile details...</div>
+
+          <div class="meta">
+            <div id="location">Location: loading...</div>
+            <div id="blog">Website: loading...</div>
+            <div id="company">Company: loading...</div>
+          </div>
+        </aside>
+
+        <section class="main">
+          <div class="repo-header">
+            <h2>Popular repositories</h2>
+            <button class="btn">New</button>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong id="repoCount">0</strong> Repositories
+            </div>
+            <div class="stat"><strong id="followers">0</strong> Followers</div>
+            <div class="stat"><strong id="following">0</strong> Following</div>
+            <div class="stat"><strong id="gists">0</strong> Gists</div>
+          </div>
+
+          <div class="cards" id="repoList"></div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const defaultUser = "harshhsharmaa57";
+
+      function renderProfile(user, repos) {
+        document.getElementById("avatar").innerHTML =
+          `<img src="${user.avatar_url}" alt="${user.login}">`;
+        document.getElementById("name").textContent = user.name || user.login;
+        document.getElementById("login").textContent = "@" + user.login;
+        document.getElementById("bio").textContent =
+          user.bio || "No bio available.";
+        document.getElementById("location").textContent =
+          "Location: " + (user.location || "Not specified");
+        document.getElementById("blog").innerHTML =
+          "Website: " +
+          (user.blog
+            ? `<a href="${user.blog}" target="_blank">${user.blog}</a>`
+            : "Not specified");
+        document.getElementById("company").textContent =
+          "Company: " + (user.company || "Not specified");
+        document.getElementById("repoCount").textContent = user.public_repos;
+        document.getElementById("followers").textContent = user.followers;
+        document.getElementById("following").textContent = user.following;
+        document.getElementById("gists").textContent = user.public_gists;
+
+        const repoList = document.getElementById("repoList");
+        repoList.innerHTML = repos
+          .map((repo) => {
+            const langColor =
+              repo.language === "JavaScript"
+                ? "yellow"
+                : repo.language === "TypeScript"
+                  ? "blue"
+                  : "green";
+            return `
+              <article class="repo-card">
+                <div class="repo-top">
+                  <div class="repo-name">${repo.name}</div>
+                  <span class="repo-type">${repo.private ? "Private" : "Public"}</span>
+                </div>
+                <div class="desc">${repo.description || "No description provided."}</div>
+                <div class="repo-meta">
+                  <span><span class="dot ${langColor}"></span>${repo.language || "Other"}</span>
+                  <span>★ ${repo.stargazers_count}</span>
+                  <span>Forks ${repo.forks_count}</span>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      async function fetchGitHubData(username) {
+        try {
+          const userRes = await fetch(
+            `https://api.github.com/users/${username}`,
+          );
+          const user = await userRes.json();
+
+          if (!user.login) {
+            throw new Error("GitHub user not found");
+          }
+
+          const reposRes = await fetch(
+            `https://api.github.com/users/${username}/repos?per_page=6`,
+          );
+          const repos = await reposRes.json();
+
+          renderProfile(user, repos);
+        } catch (error) {
+          document.getElementById("name").textContent =
+            "Error loading GitHub data";
+          document.getElementById("bio").textContent =
+            "Please check the GitHub API or username.";
+          console.error(error);
+        }
+      }
+
+      document
+        .getElementById("searchForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const username = document.getElementById("searchInput").value.trim();
+          if (username) {
+            fetchGitHubData(username);
+          }
+        });
+
+      fetchGitHubData(defaultUser);
+    </script>
+  </body>
+</html>

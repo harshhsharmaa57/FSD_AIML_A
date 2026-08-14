@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch try</title>
+  </head>
+  <body>
+    <table border="1" cellpadding="8" cellspacing="0">
+      <thead>
+        <tr>
+          <th>S.no</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+
+      <tbody id="fetching_data"></tbody>
+    </table>
+
+    <script>
+      const ele = document.getElementById("fetching_data");
+      const URL = "https://dummyjson.com/products";
+
+      async function loadProducts(url) {
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          const products = data.products || [];
+
+          let row = ``;
+
+          products.forEach((product, index) => {
+            const productImage =
+              product.thumbnail ||
+              (product.images && product.images[0]) ||
+              "https://via.placeholder.com/80";
+
+            row += `
+            <tr>
+              <td>${index + 1}</td>
+              <td><img src="${productImage}" alt="${product.title}" width="80" height="80"></td>
+              <td>${product.title}</td>
+              <td>${product.category}</td>
+              <td>${product.rating}</td>
+              <td>${product.price}</td>
+              <td>${product.stock}</td>
+            </tr>
+          `;
+          });
+
+          ele.innerHTML = row;
+        } catch (err) {
+          console.log("Error fetching products:", err);
+        }
+      }
+
+      loadProducts(URL);
+    </script>
+  </body>
+</html>
