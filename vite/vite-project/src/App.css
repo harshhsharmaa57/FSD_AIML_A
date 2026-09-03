@@ -182,3 +182,8 @@
     border-right-color: var(--border);
   }
 }
+
+/* Simple shopping layout tweaks */
+.site-header, .site-footer, .navBar { max-width: 1126px; margin: 0 auto; }
+.product-grid { max-width: 1126px; margin: 0 auto; }
+
